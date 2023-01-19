@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play BlackJack</title>
+</head> 
+<body>
+    {{ content }}
+    <form action="#" method="post">
+        <br>Dealer Sum: {{ dealer_card }}
+        <br>Your Sum:   <input type="text" name="guess" id="guess" value={{player_card}}>
+        <br>Usable Ace: {{ usable_ace }}
+        <br>Terminated: {{ terminated }}
+        <br>Reward: {{ reward }} 
+        <br>Seed: {{ seed }}
+        <br>Last Action: {{ last_action }}
+        <br>Input Seed:  <input type="text" name="seed" id="seed" value={{seed}}>
+        <br><input type="submit" name="HitStick" value="Hit" {% if terminated == "True" %} disabled {% endif %}>
+            <input type="submit" name="HitStick" value="Stick" {% if terminated == "True" %} disabled {% endif %}>
+            <input type="submit" name="HitStick" value="Reset">
+        <br><br>HISTORY:
+        <br>{{ history }}
+        <br><input type="submit" name="HitStick" value="Bonsai">
+    </form>
+ 
+
+</body>
+</html>
