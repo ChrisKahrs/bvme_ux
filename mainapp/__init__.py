@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from flask_restful import Api
 import gymnasium as gym
 import requests
+import json
 # from flask_cors import CORS
 import warnings
 
@@ -20,7 +21,7 @@ def fromReset(seed):
     try:
         response = None
         response = requests.request("POST",prefix + "/api/reset", 
-                                    json = sendit,
+                                    json = json.dumps(sendit),
                                     headers={"content-type": "application/json"})
         warnings.warn("post call in reset")
         warnings.warn("response status code: ", response.status_code)
